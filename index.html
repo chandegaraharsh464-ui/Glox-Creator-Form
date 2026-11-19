@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glox Beauty-Connect | Creator Collaboration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6E3FF3;
+      --primary-dark: #5227CC;
+      --accent: #A78BFA;
+      --bg-gradient: linear-gradient(135deg, #4C1D95 0%, #6E3FF3 50%, #8B5CF6 100%);
+      --surface: #FFFFFF;
+      --text-main: #1E1B4B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background: #F5F3FF;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 20px 14px 48px;
+    }
+
+    .container {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .header-card {
+      background: var(--bg-gradient);
+      color: #FFFFFF;
+      border-radius: 20px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(110, 63, 243, 0.25);
+      margin-bottom: 20px;
+    }
+
+    .logo-wrap {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 14px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: #6E3FF3;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .header-card h1 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .header-card p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+    }
+
+    .form-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 24px 20px;
+      box-shadow: 0 6px 24px rgba(30, 27, 75, 0.06);
+      border: 1px solid #EDE9FE;
+    }
+
+    .section-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      margin: 22px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #EDE9FE;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    label span.req {
+      color: #E11D48;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.94rem;
+      color: var(--text-main);
+      background: #FAFAFF;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(110, 63, 243, 0.14);
+    }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .row-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .radio-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .radio-option {
+      position: relative;
+    }
+
+    .radio-option input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .radio-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: #FAFAFF;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .radio-option input:checked + .radio-box {
+      border-color: var(--primary);
+      background: #EDE9FE;
+      color: var(--primary-dark);
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 10px;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: var(--bg-gradient);
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(110, 63, 243, 0.3);
+      transition: transform 0.15s, opacity 0.2s;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.95;
+    }
+
+    .submit-btn:active {
+      transform: scale(0.99);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .success-card {
+      display: none;
+      text-align: center;
+      padding: 36px 20px;
+    }
+
+    .success-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #EDE9FE;
+      color: var(--primary);
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-weight: 700;
+    }
+
+    .success-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .success-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-card">
+      <div class="logo-wrap">
+        <img src="logo.jpg" alt="Glox Beauty-Connect Logo" />
+      </div>
+      <h1>Glox Creator Collaboration</h1>
+      <p>Partner with Glox Beauty-Connect to feature India's premier luxury salons, spas, and aesthetic clinics.</p>
+    </div>
+
+    <div class="form-card">
+      <form id="creatorForm">
+        <div class="section-title">1. Basic & Contact Details</div>
+
+        <div class="field">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" name="fullName" placeholder="e.g., Riya Sharma" required />
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label>Instagram Handle <span class="req">*</span></label>
+            <input type="text" name="igHandle" placeholder="@yourhandle" required />
+          </div>
+          <div class="field">
+            <label>WhatsApp Number <span class="req">*</span></label>
+            <input type="tel" name="whatsapp" placeholder="+91 98765 43210" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Instagram Profile Link <span class="req">*</span></label>
+          <input type="url" name="igLink" placeholder="https://www.instagram.com/yourhandle/" required />
+        </div>
+
+        <div class="field">
+          <label>Email ID <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="creator@email.com" required />
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label>City <span class="req">*</span></label>
+            <input type="text" name="city" placeholder="e.g., Surat, Mumbai, Pune" required />
+          </div>
+          <div class="field">
+            <label>Local Area / Neighborhood <span class="req">*</span></label>
+            <input type="text" name="area" placeholder="e.g., Vesu, Adajan, Bandra" required />
+          </div>
+        </div>
+
+        <div class="section-title">2. Commercials & Pricing</div>
+
+        <div class="row-2">
+          <div class="field">
+            <label>1 Instagram Reel Rate (₹) <span class="req">*</span></label>
+            <input type="number" name="reelRate" placeholder="e.g., 2500" min="0" required />
+          </div>
+          <div class="field">
+            <label>1 Reel + 2 Stories Package (₹) <span class="req">*</span></label>
+            <input type="number" name="packageRate" placeholder="e.g., 3500" min="0" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Collaboration Preference <span class="req">*</span></label>
+          <select name="collabPreference" required>
+            <option value="" disabled selected>Select preference</option>
+            <option value="Paid Only">Paid Only</option>
+            <option value="Barter (Free Salon/Spa Service)">Barter (Free Salon/Spa Service)</option>
+            <option value="Paid + Barter Hybrid">Paid + Barter Hybrid</option>
+          </select>
+        </div>
+
+        <div class="section-title">3. Quick Screening</div>
+
+        <div class="field">
+          <label>1. Do you shoot & edit your own Reels? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="shootEditOwn" value="Yes" required />
+              <span class="radio-box">Yes</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="shootEditOwn" value="No" required />
+              <span class="radio-box">No</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>2. Are you open to allowing Glox to boost/whitelist your Reel as an ad? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="adBoost" value="Yes" required />
+              <span class="radio-box">Yes</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="adBoost" value="No" required />
+              <span class="radio-box">No</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Submit Creator Details</button>
+      </form>
+
+      <div class="success-card" id="successCard">
+        <div class="success-icon">✓</div>
+        <h2>Details Submitted!</h2>
+        <p>Thank you for sharing your profile with <strong>Glox Beauty-Connect</strong>. Our partnerships team will review your rates and reach out on WhatsApp shortly.</p>
+      </div>
+    </div>
+
+    <div class="footer-note">Powered by Glox Beauty-Connect • glox.in</div>
+  </div>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKx1h0Se2ugM_GoZhvUlBHWAAs_EAl3AQwJvonrzTN5lMF8TUAi5wyuHnG31aZ2jvfiA/exec";
+    const form = document.getElementById("creatorForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const successCard = document.getElementById("successCard");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        form.style.display = "none";
+        successCard.style.display = "block";
+      } catch (error) {
+        alert("Something went wrong. Please try again.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Creator Details";
+      }
+    });
+  </script>
+</body>
+</html>
